@@ -1,17 +1,13 @@
-# use the latest node LTS release
-FROM node:gallium
-WORKDIR /usr/src/app
+# use a node base image
+FROM node:7-onbuild
 
-# copy package.json and package-lock.json and install packages. we do this
-# separate from the application code to better use docker's caching
-# `npm install` will be cached on future builds if only the app code changed
-COPY package*.json ./
-RUN npm install
+# set maintainer
+LABEL maintainer "academy@release.works"
 
-# copy the app
-COPY . .
+# set a health check
+HEALTHCHECK --interval=5s \
+            --timeout=5s \
+            CMD curl -f http://127.0.0.1:8000 || exit 1
 
-# expose port 3000 and start the app
-EXPOSE 3000
-CMD [ "npm", "start" ]
-
+# tell docker what port to expose
+EXPOSE 8000
