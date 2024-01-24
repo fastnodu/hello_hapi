@@ -1,19 +1,21 @@
 {
-  "name": "hello",
+  "name": "getintodevops-hellonode",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "A Hello World HTTP server",
+  "main": "main.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "NODE_ENV=test node node_modules/@hapi/lab/bin/lab -v -L -C"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
-  "author": "Brian Hogan",
-  "license": "MIT",
-  "dependencies": {
-    "@hapi/hapi": "^20.2.1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/getintodevops/hellonode/"
   },
-  "devDependencies": {
-    "@hapi/code": "^8.0.5",
-    "@hapi/lab": "^24.4.0"
-  }
+  "keywords": [
+    "node",
+    "docker",
+    "dockerfile"
+  ],
+  "author": "miiro@getintodevops.com",
+  "license": "ISC"
 }
